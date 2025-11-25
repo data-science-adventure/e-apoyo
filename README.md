@@ -1,239 +1,88 @@
 # eApoyo
 
-This application was generated using JHipster 8.11.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.11.0](https://www.jhipster.tech/documentation-archive/v8.11.0).
+# 🚀 Plataforma Integral de Gestión de Apoyos para el Gobierno (MVP)
 
-## Project Structure
+---
 
-Node is required for generation and recommended for development. `package.json` is always generated for a better development experience with prettier, commit hooks, scripts and so on.
+## 1. Resumen Ejecutivo
 
-In the project root, JHipster generates configuration files for tools like git, prettier, eslint, husky, and others that are well known and you can find references in the web.
+[cite_start]La presente propuesta define el marco de trabajo para el próximo **Hackatón del TecNM**, enfocándose en resolver uno de los desafíos operativos más críticos de la organización: la saturación y gestión manual en el **otorgamiento de apoyos gubernamentales**[cite: 3].
 
-`/src/*` structure follows default Java structure.
+[cite_start]El objetivo es convocar talento técnico para desarrollar **prototipos funcionales** que[cite: 4]:
 
-- `.yo-rc.json` - Yeoman configuration file
-  JHipster configuration is stored in this file at `generator-jhipster` key. You may find `generator-jhipster-*` for specific blueprints configuration.
-- `.yo-resolve` (optional) - Yeoman conflict resolver
-  Allows to use a specific action when conflicts are found skipping prompts for files that matches a pattern. Each line should match `[pattern] [action]` with pattern been a [Minimatch](https://github.com/isaacs/minimatch#minimatch) pattern and action been one of skip (default if omitted) or force. Lines starting with `#` are considered comments and are ignored.
-- `.jhipster/*.json` - JHipster entity configuration files
+- **Automaticen** la validación documental.
+- **Optimicen** el flujo de evaluación de expertos.
+- **Garantice** la trazabilidad de los recursos.
 
-- `npmw` - wrapper to use locally installed npm.
-  JHipster installs Node and npm locally using the build tool by default. This wrapper makes sure npm is installed locally and uses it avoiding some differences different versions can cause. By using `./npmw` instead of the traditional `npm` you can configure a Node-less environment to develop or test your application.
-- `/src/main/docker` - Docker configurations for the application and services that the application depends on
+[cite_start]Esto busca reducir significativamente los tiempos de respuesta a la ciudadanía[cite: 4].
 
-## Development
+---
 
-The build system will install automatically the recommended version of Node and npm.
+## 2. Antecedentes y Justificación del Problema
 
-We provide a wrapper to launch npm.
-You will only need to run this command when dependencies change in [package.json](package.json).
+[cite_start]Actualmente, el proceso de gestión de apoyos sociales enfrenta **limitaciones operativas severas** ante volúmenes superiores a las 10,000 solicitudes por convocatoria[cite: 6].
 
-```
-./npmw install
-```
+[cite_start]Se han identificado las siguientes problemáticas críticas[cite: 7]:
 
-We use npm scripts and [Vite][] as our build system.
+- [cite_start]**Cuellos de botella en la validación:** La revisión manual de documentos (INE, comprobantes) consume aproximadamente el **80% del tiempo** del personal administrativo, generando retrasos y fatiga operativa[cite: 9].
+- [cite_start]**Dispersión en la evaluación:** La asignación de expedientes a evaluadores expertos carece de una **plataforma centralizada**, dificultando el seguimiento, la estandarización de criterios y el cumplimiento de plazos[cite: 10].
+- [cite_start]**Riesgo de error humano:** El manejo manual incrementa la probabilidad de errores en la captura de datos y en la dictaminación final[cite: 11].
+- [cite_start]**Falta de trazabilidad:** La ausencia de un sistema integrado dificulta informar al ciudadano sobre el **estatus real de su trámite** en tiempo real[cite: 12].
 
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
+---
 
-```
-./mvnw
-./npmw start
-```
+## 3. Objetivo General del Reto
 
-Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `./npmw update` and `./npmw install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `./npmw help update`.
+[cite_start]Desarrollar una **Plataforma Integral de Gestión de Apoyos (MVP)** que permita la **digitalización del ciclo de vida completo de una solicitud**[cite: 14].
 
-The `./npmw run` command will list all the scripts available to run for this project.
+[cite_start]Esto incluye desde la captura por parte del ciudadano hasta la autorización del apoyo de que se trate, priorizando la **automatización de procesos repetitivos** mediante el uso de tecnología[cite: 14].
 
-### PWA Support
+---
 
-JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
+## 4. Estructura Técnica del Reto (Tracks)
 
-The service worker initialization code is commented out by default. To enable it, uncomment the following code in `src/main/webapp/index.html`:
+[cite_start]Para garantizar soluciones abordables y especializadas, el reto se dividirá en **tres módulos** o líneas de trabajo sugeridas[cite: 16]:
 
-```html
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js').then(function () {
-      console.log('Service Worker Registered');
-    });
-  }
-</script>
-```
+### Módulo A: Admisión inteligente y validación (Pre-filtro)
 
-Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipster's service worker. It dynamically generates the `service-worker.js` file.
+- [cite_start]**El Desafío:** Crear un sistema de ingesta que utilice tecnologías de **reconocimiento óptico (OCR) e Inteligencia Artificial** para validar la documentación en tiempo real[cite: 19].
+- [cite_start]**Funcionalidad Esperada:** Lectura automática de documentos oficiales, cruce de datos contra el formulario de solicitud y **rechazo automático de expedientes incompletos o ilegibles** antes de la intervención humana[cite: 20].
 
-### Managing dependencies
+### Módulo B: Flujo de evaluación y dictaminación
 
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
+- [cite_start]**El Desafío:** Diseñar un **tablero de control (Dashboard)** para la gestión de evaluadores expertos[cite: 22].
+- [cite_start]**Funcionalidad Esperada:** Asignación automática y equitativa de solicitudes a evaluadores, herramientas de calificación estandarizada (**rúbricas digitales**), y mecanismos de consenso para casos complejos (evaluación por pares)[cite: 23].
 
-```
-./npmw install --save --save-exact leaflet
-```
+### Módulo C: Seguimiento, dispersión y transparencia
 
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
+- [cite_start]**El Desafío:** Desarrollar el ecosistema de comunicación con el beneficiario y la gestión final del apoyo[cite: 25].
+- [cite_start]**Funcionalidad Esperada:** Sistema de **notificaciones automáticas por etapas** (validado, en evaluación, aprobado/rechazado) y generación de reportes de auditoría sobre la asignación de recursos (becas, cursos, apoyos económicos)[cite: 26].
 
-```
-./npmw install --save-dev --save-exact @types/leaflet
-```
+---
 
-Then you would import the JS and CSS files specified in library's installation instructions so that [Vite][] knows about them:
-Note: There are still a few other things remaining to do for Leaflet that we won't detail here.
+## 5. Entregables y Criterios de Evaluación
 
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
+[cite_start]Los proyectos resultantes serán evaluados bajo una matriz ponderada que prioriza la **viabilidad operativa** sobre la complejidad teórica[cite: 28]:
 
-## Building for production
+| Criterio de Evaluación                     | Ponderación                | Descripción Clave                                                                                                      |
+| :----------------------------------------- | :------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| **Impacto en la eficiencia**               | [cite_start]30% [cite: 29] | [cite_start]Capacidad demostrable para reducir el tiempo de procesamiento manual (Estimado ideal: >60%)[cite: 29].     |
+| **Funcionalidad técnica / MVP**            | [cite_start]30% [cite: 30] | [cite_start]Estabilidad del prototipo y uso efectivo de tecnologías de automatización (IA/OCR/Workflows)[cite: 30].    |
+| **Experiencia de usuario y accesibilidad** | [cite_start]20% [cite: 31] | [cite_start]Facilidad de uso para el funcionario público y el ciudadano (considerando brechas digitales)[cite: 31].    |
+| **Seguridad y protección de datos**        | [cite_start]20% [cite: 32] | [cite_start]Cumplimiento estricto con normativas de manejo de información sensible y datos personales (PII)[cite: 32]. |
 
-### Packaging as jar
+---
 
-To build the final jar and optimize the eApoyo application for production, run:
+## 6. Recursos Requeridos para el Evento
 
-```
-./mvnw -Pprod clean verify
-```
+[cite_start]Para el éxito de este reto, la organización proveerá[cite: 34]:
 
-This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
-To ensure everything worked, run:
+- [cite_start]**Set de Datos de Prueba:** 60 expedientes ficticios anonimizados para pruebas de estrés y validación[cite: 35].
+- [cite_start]**Mentores Especializados:** Disponibilidad de gerentes de programa y operativos para resolver dudas de negocio durante el evento[cite: 36].
+- [cite_start]**Infraestructura Base:** Acceso a APIs de prueba y documentación de las reglas de operación vigentes[cite: 37].
 
-```
-java -jar target/*.jar
-```
+---
 
-Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+## 7. Conclusión
 
-Refer to [Using JHipster in production][] for more details.
-
-### Packaging as war
-
-To package your application as a war in order to deploy it to an application server, run:
-
-```
-./mvnw -Pprod,war clean verify
-```
-
-### JHipster Control Center
-
-JHipster Control Center can help you manage and control your application(s). You can start a local control center server (accessible on http://localhost:7419) with:
-
-```
-docker compose -f src/main/docker/jhipster-control-center.yml up
-```
-
-## Testing
-
-### Spring Boot tests
-
-To launch your application's tests, run:
-
-```
-./mvnw verify
-```
-
-### Client tests
-
-Unit tests are run by [Vitest][]. They're located near components and can be run with:
-
-```
-./npmw test
-```
-
-## Others
-
-### Code quality using Sonar
-
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
-
-```
-docker compose -f src/main/docker/sonar.yml up -d
-```
-
-Note: we have turned off forced authentication redirect for UI in [src/main/docker/sonar.yml](src/main/docker/sonar.yml) for out of the box experience while trying out SonarQube, for real use cases turn it back on.
-
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
-
-Then, run a Sonar analysis:
-
-```
-./mvnw -Pprod clean verify sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
-```
-
-If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
-
-```
-./mvnw initialize sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
-```
-
-Additionally, Instead of passing `sonar.password` and `sonar.login` as CLI arguments, these parameters can be configured from [sonar-project.properties](sonar-project.properties) as shown below:
-
-```
-sonar.login=admin
-sonar.password=admin
-```
-
-For more information, refer to the [Code quality page][].
-
-### Docker Compose support
-
-JHipster generates a number of Docker Compose configuration files in the [src/main/docker/](src/main/docker/) folder to launch required third party services.
-
-For example, to start required services in Docker containers, run:
-
-```
-docker compose -f src/main/docker/services.yml up -d
-```
-
-To stop and remove the containers, run:
-
-```
-docker compose -f src/main/docker/services.yml down
-```
-
-[Spring Docker Compose Integration](https://docs.spring.io/spring-boot/reference/features/dev-services.html) is enabled by default. It's possible to disable it in application.yml:
-
-```yaml
-spring:
-  ...
-  docker:
-    compose:
-      enabled: false
-```
-
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a Docker image of your app by running:
-
-```sh
-npm run java:docker
-```
-
-Or build a arm64 Docker image when using an arm64 processor os like MacOS with M1 processor family running:
-
-```sh
-npm run java:docker:arm64
-```
-
-Then run:
-
-```sh
-docker compose -f src/main/docker/app.yml up -d
-```
-
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the Docker Compose sub-generator (`jhipster docker-compose`), which is able to generate Docker configurations for one or several JHipster applications.
-
-## Continuous Integration (optional)
-
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-[JHipster Homepage and latest documentation]: https://www.jhipster.tech
-[JHipster 8.11.0 archive]: https://www.jhipster.tech/documentation-archive/v8.11.0
-[Using JHipster in development]: https://www.jhipster.tech/documentation-archive/v8.11.0/development/
-[Using Docker and Docker-Compose]: https://www.jhipster.tech/documentation-archive/v8.11.0/docker-compose
-[Using JHipster in production]: https://www.jhipster.tech/documentation-archive/v8.11.0/production/
-[Running tests page]: https://www.jhipster.tech/documentation-archive/v8.11.0/running-tests/
-[Code quality page]: https://www.jhipster.tech/documentation-archive/v8.11.0/code-quality/
-[Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v8.11.0/setting-up-ci/
-[Node.js]: https://nodejs.org/
-[NPM]: https://www.npmjs.com/
-[Leaflet]: https://leafletjs.com/
-[DefinitelyTyped]: https://definitelytyped.org/
+[cite_start]La implementación de este reto en el Hackatón TecNM no solo busca una solución tecnológica, sino **catalizar una transformación en la cultura de servicio**[cite: 39]. [cite_start]Al automatizar la burocracia operativa, se permitirá que el capital humano se enfoque en evaluar el impacto cualitativo de los apoyos y atender mejor a la ciudadanía[cite: 40].
