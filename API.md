@@ -72,8 +72,8 @@ Este servicio gestiona el acceso a los datos de las solicitudes ciudadanas. Todo
   "genero": "Hombre",
   "desc": "Conocimientos en MySQL y JavaScript. Proactivo.",
   "keywords": "MySQL, JavaScript, proactividad",
-  "ineUrl": "http://207.249.118.42/AGUR990909HMNLLS19_ine.pdf",
-  "cvUrl": "http://207.249.118.42/AGUR990909HMNLLS19_cv.pdf",
+  "ineUrl": "http://DOMINIO_DEL_PROYECTO/AGUR990909HMNLLS19_ine.pdf",
+  "cvUrl": "http://DOMINIO_DEL_PROYECTO/AGUR990909HMNLLS19_cv.pdf",
   "estado": "ENVIADA",
   "apoyo": {
     "id": "ai-machine-learning",
@@ -175,4 +175,124 @@ La respuesta es un **arreglo de objetos JSON** con la estructura de Apoyo.
         ...
     }
 ]
+```
+
+# 💻 Ejemplos de Peticiones API con cURL
+
+## 1. Obtención del Token de Autenticación (`/api/authenticate`)
+
+Esta es la primera petición y la única que **no requiere** la cabecera `Authorization`.
+
+| **Detalle**  | **Valor**                        |
+| ------------ | -------------------------------- |
+| **Método**   | `POST`                           |
+| **Endpoint** | `<BASE_URL>/api/authenticate`    |
+| **Headers**  | `Content-Type: application/json` |
+
+```bash
+# Define la URL base de tu API
+BASE_URL="http://DOMINIO_DEL_PROYECTO:8080"
+
+# Petición cURL para autenticación
+curl -X POST "$BASE_URL/api/authenticate" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "username": "user",
+        "password": "PASSWORD_SEGURO_AQUI",
+        "rememberMe": true
+      }'
+```
+
+**Salida Esperada:**
+
+```json
+{"id_token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsI..."}
+# -> Guarda este valor (el JWT) para usarlo en las siguientes peticiones.
+```
+
+---
+
+## 2. Consultas del Servicio Solicitudes (`/api/solicituds`)
+
+Todas las siguientes peticiones **requieren** la cabecera `Authorization: Bearer <ID_TOKEN>`.
+
+### A. Consultar un Único Registro (Por ID)
+
+| **Detalle**  | **Valor**                          |
+| ------------ | ---------------------------------- |
+| **Método**   | `GET`                              |
+| **Endpoint** | `/api/solicituds/{id}`             |
+| **Headers**  | `Authorization: Bearer <ID_TOKEN>` |
+
+```bash
+# Reemplaza con tu token JWT obtenido
+ID_TOKEN="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsI..."
+# Reemplaza con una CURP válida
+ID_SOLICITUD="AGUR990909HMNLLS19"
+BASE_URL="http://DOMINIO_DEL_PROYECTO:8080"
+
+# Petición cURL para obtener una solicitud específica
+curl -X GET "$BASE_URL/api/solicituds/$ID_SOLICITUD" \
+  -H "Authorization: Bearer $ID_TOKEN"
+```
+
+### B. Consultar Varios Registros (Paginación)
+
+| **Detalle**  | **Valor**                                             |
+| ------------ | ----------------------------------------------------- |
+| **Método**   | `GET`                                                 |
+| **Endpoint** | `/api/solicituds?page=<page>&size=<size>&sort=<sort>` |
+| **Headers**  | `Authorization: Bearer <ID_TOKEN>`                    |
+
+```bash
+# Consulta la página 0 con 5 registros, ordenados por 'id' ascendente
+PARAMS="page=0&size=5&sort=id,asc"
+BASE_URL="http://DOMINIO_DEL_PROYECTO:8080"
+
+# Petición cURL para obtener la primera página de solicitudes
+curl -i -X GET "$BASE_URL/api/solicituds?$PARAMS" \
+  -H "Authorization: Bearer $ID_TOKEN"
+# Nota: La opción '-i' muestra las cabeceras de respuesta, donde se encuentra X-Total-Count y Link.
+```
+
+---
+
+## 3. Consultas del Recurso Apoyo (`/api/apoyos`)
+
+Estas peticiones también **requieren** la cabecera `Authorization: Bearer <ID_TOKEN>`.
+
+### A. Consultar un Único Registro (Por ID)
+
+| **Detalle**  | **Valor**                          |
+| ------------ | ---------------------------------- |
+| **Método**   | `GET`                              |
+| **Endpoint** | `/api/apoyos/{id}`                 |
+| **Headers**  | `Authorization: Bearer <ID_TOKEN>` |
+
+```bash
+# Reemplaza con el ID de un apoyo, ej. 'ai-agentes-google'
+ID_APOYO="ai-agentes-google"
+BASE_URL="http://DOMINIO_DEL_PROYECTO:8080"
+
+# Petición cURL para obtener un apoyo específico
+curl -X GET "$BASE_URL/api/apoyos/$ID_APOYO" \
+  -H "Authorization: Bearer $ID_TOKEN"
+```
+
+### B. Consultar Varios Registros (Paginación)
+
+| **Detalle**  | **Valor**                                         |
+| ------------ | ------------------------------------------------- |
+| **Método**   | `GET`                                             |
+| **Endpoint** | `/api/apoyos?page=<page>&size=<size>&sort=<sort>` |
+| **Headers**  | `Authorization: Bearer <ID_TOKEN>`                |
+
+```bash
+# Consulta la primera página con 2 registros, ordenados por 'id' ascendente
+PARAMS_APOYO="page=0&size=2&sort=id,asc"
+BASE_URL="http://DOMINIO_DEL_PROYECTO:8080"
+
+# Petición cURL para obtener la lista paginada de apoyos
+curl -X GET "$BASE_URL/api/apoyos?$PARAMS_APOYO" \
+  -H "Authorization: Bearer $ID_TOKEN"
 ```
