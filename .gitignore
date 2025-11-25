@@ -151,3 +151,11 @@ Desktop.ini
 ######################
 coverage/
 .nyc_output/
+
+
+######################
+# Project specific
+######################
+
+datos.csv
+entities.png

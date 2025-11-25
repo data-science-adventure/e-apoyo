@@ -1,0 +1,45 @@
+
+entity Solicitud {
+    curp String
+    nombre String
+    primerApellido String
+    segundoApellido String
+    genero String
+    desc String
+    keywords String
+    ineUrl String
+    cvUrl String
+    estado Estado
+}
+
+entity Apoyo {
+	nombre String
+    desc String
+    prerrequisitos String
+    keywords String
+    tipo TipoApoyo
+}
+
+enum Estado {
+    EN_CAPTURA, ENVIADA, EN_CORRECCION, VALIDADA, NO_CUMPLE_PERFIL, APROBADA
+}
+
+enum TipoApoyo {
+    CURSO, BECA, PENSION, ALIMENTACION, SALUD
+}
+
+relationship ManyToOne {
+	Solicitud{apoyo} to Apoyo
+}
+
+// Set pagination options
+paginate Solicitud, Apoyo with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
