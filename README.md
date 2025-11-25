@@ -86,3 +86,8 @@ Para el éxito de este reto, la organización proveerá:
 ## 7. Conclusión
 
 La implementación de este reto en el Hackatón TecNM no solo busca una solución tecnológica, sino **catalizar una transformación en la cultura de servicio**. Al automatizar la burocracia operativa, se permitirá que el capital humano se enfoque en evaluar el impacto cualitativo de los apoyos y atender mejor a la ciudadanía.
+
+## 8. Recursos importantes para el proyecto
+
+1. [Flujo de la solicitud y reglas de operación](docs/requerimientos.md)
+2. [Documentación del API de solicitudes y apoyos](docs/api.md)
