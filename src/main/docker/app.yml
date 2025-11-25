@@ -2,7 +2,7 @@
 name: eapoyo
 services:
   app:
-    image: eapoyo
+    image: danimaniarqsoft/eapoyo:0.0.1
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
