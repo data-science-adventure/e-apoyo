@@ -1,0 +1,62 @@
+{
+  "annotations": {
+    "changelogDate": "20251125165729"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "curp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "primerApellido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "segundoApellido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "genero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "desc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "keywords",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ineUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cvUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Estado",
+      "fieldValues": "EN_CAPTURA,ENVIADA,EN_CORRECCION,VALIDADA,NO_CUMPLE_PERFIL,APROBADA"
+    }
+  ],
+  "name": "Solicitud",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "apoyo",
+      "relationshipName": "apoyo",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

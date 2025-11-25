@@ -1,0 +1,28 @@
+{
+  "eApoyoApp": {
+    "apoyo": {
+      "home": {
+        "title": "Apoyos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Apoyo",
+        "createOrEditLabel": "Crear o editar Apoyo",
+        "notFound": "Ningún Apoyos encontrado"
+      },
+      "created": "Un nuevo Apoyo ha sido creado con el identificador { param }",
+      "updated": "Un Apoyo ha sido actualizado con el identificador { param }",
+      "deleted": "Un Apoyo ha sido eliminado con el identificador { param }",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Apoyo { id }?"
+      },
+      "detail": {
+        "title": "Apoyo"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "desc": "Desc",
+      "prerrequisitos": "Prerrequisitos",
+      "keywords": "Keywords",
+      "tipo": "Tipo"
+    }
+  }
+}

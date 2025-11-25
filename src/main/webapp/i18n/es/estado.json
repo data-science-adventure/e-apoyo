@@ -1,0 +1,13 @@
+{
+  "eApoyoApp": {
+    "Estado": {
+      "null": "",
+      "EN_CAPTURA": "EN_CAPTURA",
+      "ENVIADA": "ENVIADA",
+      "EN_CORRECCION": "EN_CORRECCION",
+      "VALIDADA": "VALIDADA",
+      "NO_CUMPLE_PERFIL": "NO_CUMPLE_PERFIL",
+      "APROBADA": "APROBADA"
+    }
+  }
+}

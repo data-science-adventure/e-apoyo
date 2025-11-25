@@ -1,0 +1,28 @@
+{
+  "eApoyoApp": {
+    "apoyo": {
+      "home": {
+        "title": "Apoyos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Apoyo",
+        "createOrEditLabel": "Create or edit a Apoyo",
+        "notFound": "No Apoyos found"
+      },
+      "created": "A new Apoyo is created with identifier { param }",
+      "updated": "A Apoyo is updated with identifier { param }",
+      "deleted": "A Apoyo is deleted with identifier { param }",
+      "delete": {
+        "question": "Are you sure you want to delete Apoyo { id }?"
+      },
+      "detail": {
+        "title": "Apoyo"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "desc": "Desc",
+      "prerrequisitos": "Prerrequisitos",
+      "keywords": "Keywords",
+      "tipo": "Tipo"
+    }
+  }
+}

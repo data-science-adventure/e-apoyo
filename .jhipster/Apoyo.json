@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20251125165730"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "desc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prerrequisitos",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "keywords",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "TipoApoyo",
+      "fieldValues": "CURSO,BECA,PENSION,ALIMENTACION,SALUD"
+    }
+  ],
+  "name": "Apoyo",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
