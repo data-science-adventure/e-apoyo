@@ -9,3 +9,7 @@ docker tag eapoyo danimaniarqsoft/eapoyo:0.0.1
 # Push image to docker hub
 
 docker push danimaniarqsoft/eapoyo:0.0.1
+
+# Running the project
+
+docker compose -f src/main/docker/app.yml up

@@ -55,9 +55,6 @@ public class SolicitudResource {
     @PostMapping("")
     public ResponseEntity<SolicitudDTO> createSolicitud(@RequestBody SolicitudDTO solicitudDTO) throws URISyntaxException {
         LOG.debug("REST request to save Solicitud : {}", solicitudDTO);
-        if (solicitudDTO.getId() != null) {
-            throw new BadRequestAlertException("A new solicitud cannot already have an ID", ENTITY_NAME, "idexists");
-        }
         solicitudDTO = solicitudService.save(solicitudDTO);
         return ResponseEntity.created(new URI("/api/solicituds/" + solicitudDTO.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, solicitudDTO.getId()))

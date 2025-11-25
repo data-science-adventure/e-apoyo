@@ -13,7 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
- * Service Implementation for managing {@link mx.infotec.eapoyo.domain.Solicitud}.
+ * Service Implementation for managing
+ * {@link mx.infotec.eapoyo.domain.Solicitud}.
  */
 @Service
 public class SolicitudServiceImpl implements SolicitudService {
@@ -23,6 +24,8 @@ public class SolicitudServiceImpl implements SolicitudService {
     private final SolicitudRepository solicitudRepository;
 
     private final SolicitudMapper solicitudMapper;
+
+    private static final String SERVER_URL = "http://207.249.118.42/";
 
     public SolicitudServiceImpl(SolicitudRepository solicitudRepository, SolicitudMapper solicitudMapper) {
         this.solicitudRepository = solicitudRepository;
@@ -63,13 +66,27 @@ public class SolicitudServiceImpl implements SolicitudService {
     @Override
     public Page<SolicitudDTO> findAll(Pageable pageable) {
         LOG.debug("Request to get all Solicituds");
-        return solicitudRepository.findAll(pageable).map(solicitudMapper::toDto);
+        return solicitudRepository
+            .findAll(pageable)
+            .map(solicitudMapper::toDto)
+            .map(solicitud -> {
+                solicitud.setCvUrl(SERVER_URL + solicitud.getCvUrl());
+                solicitud.setIneUrl(SERVER_URL + solicitud.getIneUrl());
+                return solicitud;
+            });
     }
 
     @Override
     public Optional<SolicitudDTO> findOne(String id) {
         LOG.debug("Request to get Solicitud : {}", id);
-        return solicitudRepository.findById(id).map(solicitudMapper::toDto);
+        return solicitudRepository
+            .findById(id)
+            .map(solicitudMapper::toDto)
+            .map(solicitud -> {
+                solicitud.setCvUrl(SERVER_URL + solicitud.getCvUrl());
+                solicitud.setIneUrl(SERVER_URL + solicitud.getIneUrl());
+                return solicitud;
+            });
     }
 
     @Override

@@ -55,9 +55,6 @@ public class ApoyoResource {
     @PostMapping("")
     public ResponseEntity<ApoyoDTO> createApoyo(@RequestBody ApoyoDTO apoyoDTO) throws URISyntaxException {
         LOG.debug("REST request to save Apoyo : {}", apoyoDTO);
-        if (apoyoDTO.getId() != null) {
-            throw new BadRequestAlertException("A new apoyo cannot already have an ID", ENTITY_NAME, "idexists");
-        }
         apoyoDTO = apoyoService.save(apoyoDTO);
         return ResponseEntity.created(new URI("/api/apoyos/" + apoyoDTO.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, apoyoDTO.getId()))
