@@ -161,4 +161,10 @@ datos.csv
 entities.png
 data/apoyos.csv
 data/solicitudes.csv
+data/cvs_extraidos
+data/pdfs
+data/copy_to_server.sh
+data/cv.md
+data/md_to_pdf.py
+data/txt_to_md.py
 .venv
